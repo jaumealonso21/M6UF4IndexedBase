@@ -44,7 +44,13 @@ function addData() {
     };
 
     var objectStore = transaction.objectStore("alumnes");
-    var request = objectStore.add({dni: "44444444H", nom: "Peter", cognom: "Parker", email: "peter@cdm.dom"});
+    var alumne = {};
+    alumne.dni = document.getElementById("dni").value;
+    alumne.nom = document.getElementById("nom").value;
+    alumne.cognom = document.getElementById("cognom").value;
+    alumne.email = document.getElementById("correu").value;
+    var request = objectStore.add(alumne);
+    //var request = objectStore.add({dni: "44444444H", nom: "Peter", cognom: "Parker", email: "peter@cdm.dom"});
     request.onsuccess = function (event) {
         console.log("Dades afegides correctament.");
     };
